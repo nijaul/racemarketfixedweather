@@ -4319,21 +4319,13 @@ input:focus{
   }
 }
 
-/* V4.27.5 — keep outside posts clear of the rails */
+/* V4.27.6 — bottom rail clearance only */
 .visual-track .track-rail-bottom{
   bottom:6px;
-}
-
-.visual-track .track-rail-top{
-  top:6px;
 }
 
 @media(max-width:760px){
   .visual-track .track-rail-bottom{
     bottom:7px;
-  }
-
-  .visual-track .track-rail-top{
-    top:7px;
   }
 }

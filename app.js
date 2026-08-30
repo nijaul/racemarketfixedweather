@@ -3042,14 +3042,10 @@ function visualLaneTop(horse){
   }
 
   /*
-    Keep the first and last post positions
-    comfortably inside the visible track.
-
-    The old 12% -> 88% spread put the
-    bottom runner close enough to the lower
-    rail that its body/label could overlap it.
+    Runner #1 keeps the original top lane.
+    Only the outside/bottom lane moves inward.
   */
-  const topLane=13;
+  const topLane=12;
   const bottomLane=82;
 
   return topLane+
