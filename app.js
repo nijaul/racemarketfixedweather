@@ -3078,13 +3078,33 @@ function setupRaceEnvironment(){
     state.trackCondition?.name||
     "Good";
 
-  track.dataset.weather=
+  const weatherClass=
     state.weatherClass||
     "weather-sunny";
+
+  track.dataset.weather=
+    weatherClass;
 
   track.dataset.weatherName=
     state.weather?.name||
     "Sunny";
+
+  [
+    "weather-sunny",
+    "weather-overcast",
+    "weather-golden",
+    "weather-haze",
+    "weather-rain"
+  ].forEach(
+    className=>
+      track.classList.remove(
+        className
+      )
+  );
+
+  track.classList.add(
+    weatherClass
+  );
 
   track.style.setProperty(
     "--weather-progress",
