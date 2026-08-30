@@ -3312,12 +3312,21 @@ function setupRaceEnvironment(){
     weather.className=
       "weather-layer";
 
-    weather.innerHTML=`
-      <i></i><i></i><i></i><i></i>
-      <i></i><i></i><i></i><i></i>
-      <i></i><i></i><i></i><i></i>
-      <i></i><i></i><i></i><i></i>
-    `;
+    const rainColumns=[
+      4,9,14,19,24,29,34,39,44,
+      49,54,59,64,69,74,79,84,89,94
+    ];
+
+    weather.innerHTML=
+      rainColumns.map(
+        (left,index)=>
+          `<i style="
+            left:${left}%;
+            animation-delay:${(
+              index*.11
+            ).toFixed(2)}s;
+          "></i>`
+      ).join("");
 
     track.appendChild(
       weather

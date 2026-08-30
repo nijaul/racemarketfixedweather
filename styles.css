@@ -4210,3 +4210,111 @@ input:focus{
 #visualTrack.weather-rain .broadcast-weather{
   color:#e2ecee !important;
 }
+
+/* V4.27.4 — weather layer positioning fix */
+#visualTrack .weather-layer{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  z-index:40 !important;
+  display:block !important;
+  overflow:hidden !important;
+  pointer-events:none !important;
+  opacity:0 !important;
+}
+
+#visualTrack.weather-rain .weather-layer{
+  opacity:.92 !important;
+}
+
+#visualTrack .weather-layer i{
+  position:absolute !important;
+  top:-35px !important;
+  display:block !important;
+  width:2px !important;
+  height:24px !important;
+  border-radius:999px !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(239,246,248,.08),
+      rgba(239,246,248,.90)
+    ) !important;
+  box-shadow:
+    0 0 4px rgba(219,235,239,.18);
+  transform:rotate(13deg);
+  animation:
+    racemarketRainHard
+    .62s
+    linear
+    infinite !important;
+}
+
+#visualTrack.weather-rain .weather-layer i:nth-child(3n){
+  height:29px !important;
+  animation-duration:.76s !important;
+}
+
+#visualTrack.weather-rain .weather-layer i:nth-child(4n){
+  height:17px !important;
+  animation-duration:.49s !important;
+}
+
+@keyframes racemarketRainHard{
+  from{
+    transform:
+      translate3d(
+        0,
+        -40px,
+        0
+      )
+      rotate(13deg);
+  }
+  to{
+    transform:
+      translate3d(
+        -46px,
+        520px,
+        0
+      )
+      rotate(13deg);
+  }
+}
+
+/* Rain atmosphere is independent of particle opacity. */
+#visualTrack.weather-rain{
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(92,106,105,.05),
+      rgba(23,34,29,.08)
+    );
+}
+
+#visualTrack.weather-rain .race-broadcast{
+  background:
+    rgba(5,13,10,.84) !important;
+}
+
+/* Keep the rain layer above scenery but below the runners. */
+#visualTrack.weather-rain #visualRunnerLayer{
+  position:relative;
+  z-index:50;
+}
+
+#visualTrack.weather-rain .finish-zone{
+  z-index:51;
+}
+
+/* Slightly denser rain on small screens. */
+@media(max-width:760px){
+  #visualTrack .weather-layer i{
+    width:1.5px !important;
+    height:20px !important;
+  }
+
+  #visualTrack.weather-rain .weather-layer{
+    opacity:.96 !important;
+  }
+}
