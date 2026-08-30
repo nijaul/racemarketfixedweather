@@ -3041,7 +3041,18 @@ function visualLaneTop(horse){
     return 50;
   }
 
-  return 12+
+  /*
+    Keep the first and last post positions
+    comfortably inside the visible track.
+
+    The old 12% -> 88% spread put the
+    bottom runner close enough to the lower
+    rail that its body/label could overlap it.
+  */
+  const topLane=13;
+  const bottomLane=82;
+
+  return topLane+
     (
       postIndex/
       Math.max(
@@ -3050,9 +3061,11 @@ function visualLaneTop(horse){
         1
       )
     )*
-    76;
+    (
+      bottomLane-
+      topLane
+    );
 }
-
 
 /* =========================================================
    VISUAL TRACK

@@ -4318,3 +4318,22 @@ input:focus{
     opacity:.96 !important;
   }
 }
+
+/* V4.27.5 — keep outside posts clear of the rails */
+.visual-track .track-rail-bottom{
+  bottom:6px;
+}
+
+.visual-track .track-rail-top{
+  top:6px;
+}
+
+@media(max-width:760px){
+  .visual-track .track-rail-bottom{
+    bottom:7px;
+  }
+
+  .visual-track .track-rail-top{
+    top:7px;
+  }
+}
