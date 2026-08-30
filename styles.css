@@ -4299,7 +4299,6 @@ input:focus{
 
 /* Keep the rain layer above scenery but below the runners. */
 #visualTrack.weather-rain #visualRunnerLayer{
-  position:relative;
   z-index:50;
 }
 
@@ -4328,4 +4327,9 @@ input:focus{
   .visual-track .track-rail-bottom{
     bottom:7px;
   }
+}
+
+/* V4.27.7 — rain must never change the runner positioning context */
+#visualTrack.weather-rain #visualRunnerLayer{
+  position:static !important;
 }
