@@ -4297,11 +4297,6 @@ input:focus{
     rgba(5,13,10,.84) !important;
 }
 
-/* Keep the rain layer above scenery but below the runners. */
-#visualTrack.weather-rain #visualRunnerLayer{
-  z-index:50;
-}
-
 #visualTrack.weather-rain .finish-zone{
   z-index:51;
 }
@@ -4329,7 +4324,33 @@ input:focus{
   }
 }
 
-/* V4.27.7 — rain must never change the runner positioning context */
+
+/* V4.27.8 — isolated runner coordinate layer
+   The runner layer always fills the visual track, so weather
+   effects can never change the horses' positioning context. */
+#visualRunnerLayer{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  z-index:50 !important;
+  pointer-events:none !important;
+}
+
 #visualTrack.weather-rain #visualRunnerLayer{
-  position:static !important;
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  z-index:50 !important;
+  pointer-events:none !important;
+}
+
+#visualTrack.weather-rain .runner-visual{
+  position:absolute !important;
+}
+
+#visualTrack.weather-rain .runner-visual{
+  /* Weather must not supply any alternate coordinate system. */
+  margin:0 !important;
 }
